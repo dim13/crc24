@@ -1,3 +1,4 @@
+// Package crc24 implements OpenPGP RFC4880 CRC-24
 package crc24
 
 import "hash"
@@ -48,18 +49,16 @@ func (d *digest) Sum32() uint32 {
 	return d.sum & 0xffffff
 }
 
+// New hash32
 func New() hash.Hash32 {
 	d := &digest{}
 	d.Reset()
 	return d
 }
 
+// Sum bytes
 func Sum(b []byte) uint32 {
 	d := New()
 	d.Write(b)
 	return d.Sum32()
-}
-
-func SumString(s string) uint32 {
-	return Sum([]byte(s))
 }

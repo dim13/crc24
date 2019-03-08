@@ -13,7 +13,7 @@ func TestSumString(t *testing.T) {
 	}
 	for _, tc := range testCases {
 		t.Run(tc.s, func(t *testing.T) {
-			sum := SumString(tc.s)
+			sum := Sum([]byte(tc.s))
 			if sum != tc.n {
 				t.Errorf("got %v, want %v", sum, tc.n)
 			}
