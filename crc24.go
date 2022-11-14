@@ -5,7 +5,7 @@ import "hash"
 
 const (
 	initial = 0x0b704ce
-	polyhom = 0x1864cfb
+	polynom = 0x1864cfb
 )
 
 type digest struct {
@@ -18,7 +18,7 @@ func (d *digest) Write(p []byte) (n int, err error) {
 		for i := 0; i < 8; i++ {
 			d.sum <<= 1
 			if d.sum&0x1000000 != 0 {
-				d.sum ^= polyhom
+				d.sum ^= polynom
 			}
 		}
 	}
